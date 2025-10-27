@@ -73,7 +73,7 @@ get_header();
                             <li><?php _e('Solicitar la portabilidad de tus datos', 'mv-braids'); ?></li>
                             <li><?php _e('Retirar tu consentimiento en cualquier momento', 'mv-braids'); ?></li>
                         </ul>
-                        <p><?php _e('Para ejercer cualquiera de estos derechos, por favor contáctanos a través de Instagram (@mv__braids) o por correo electrónico.', 'mv-braids'); ?></p>
+                        <p><?php _e('Para ejercer cualquiera de estos derechos, por favor contáctanos a través de Instagram (@mv__trenzas) o por correo electrónico.', 'mv-braids'); ?></p>
 
                         <h2>6. <?php _e('Cookies', 'mv-braids'); ?></h2>
                         <p><?php _e('Este sitio web utiliza cookies esenciales para su correcto funcionamiento. No utilizamos cookies de seguimiento de terceros ni cookies publicitarias.', 'mv-braids'); ?></p>
@@ -90,7 +90,7 @@ get_header();
                         <h2>10. <?php _e('Contacto', 'mv-braids'); ?></h2>
                         <p><?php _e('Si tienes preguntas sobre esta política de privacidad o sobre cómo manejamos tus datos personales, por favor contáctanos:', 'mv-braids'); ?></p>
                         <ul style="list-style: none; padding-left: 0;">
-                            <li><strong>Instagram:</strong> <a href="https://instagram.com/mv__braids" target="_blank">@mv__braids</a></li>
+                            <li><strong>Instagram:</strong> <a href="https://instagram.com/mv__trenzas" target="_blank">@mv__trenzas</a></li>
                             <li><strong><?php _e('Ubicación:', 'mv-braids'); ?></strong> A Coruña, España</li>
                         </ul>
 

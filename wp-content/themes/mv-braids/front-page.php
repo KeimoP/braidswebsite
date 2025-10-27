@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Homepage
+ * Front Page Template - Modern Homepage
  * 
  * @package MV_Braids
  */
@@ -315,7 +315,6 @@ get_header();
                         <a href="<?php echo esc_url(home_url('/reserva')); ?>" class="btn btn-primary">
                             <i class="fas fa-calendar-check"></i>
                             <?php _e('Reservar Cita', 'mv-braids'); ?>
-                        </a>
                         </a>
                     </div>
                 </div>

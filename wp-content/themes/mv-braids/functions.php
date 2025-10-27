@@ -85,6 +85,46 @@ function mv_braids_setup() {
 add_action('after_setup_theme', 'mv_braids_setup');
 
 /**
+ * Remove post type support - disable blog functionality
+ */
+function mv_braids_remove_post_type_support() {
+    // Remove default post type
+    unregister_taxonomy_for_object_type('category', 'post');
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+add_action('init', 'mv_braids_remove_post_type_support');
+
+/**
+ * Hide posts from admin menu
+ */
+function mv_braids_remove_menus() {
+    remove_menu_page('edit.php'); // Posts
+    remove_menu_page('edit-comments.php'); // Comments
+}
+add_action('admin_menu', 'mv_braids_remove_menus');
+
+/**
+ * Disable posts from appearing in admin bar
+ */
+function mv_braids_remove_admin_bar_links() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('new-post');
+}
+add_action('wp_before_admin_bar_render', 'mv_braids_remove_admin_bar_links');
+
+/**
+ * Redirect posts list if accessed directly
+ */
+function mv_braids_redirect_post_pages() {
+    global $pagenow;
+    if ($pagenow === 'edit.php' && !isset($_GET['post_type'])) {
+        wp_redirect(admin_url('index.php'));
+        exit;
+    }
+}
+add_action('admin_init', 'mv_braids_redirect_post_pages');
+
+/**
  * Enqueue scripts and styles
  */
 function mv_braids_scripts() {
@@ -554,11 +594,10 @@ add_filter('upload_mimes', 'mv_braids_mime_types');
  */
 function mv_braids_default_menu() {
     echo '<ul class="nav-menu">';
-    echo '<li><a href="' . esc_url(home_url('/')) . '">' . __('Inicio', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/galeria')) . '">' . __('Galería', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/servicios')) . '">' . __('Servicios', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/sobre-mi')) . '">' . __('Sobre Mí', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/faq')) . '">' . __('FAQ', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#trabajos')) . '">' . __('Trabajos', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#vanessa')) . '">' . __('Sobre Mí', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#servicios')) . '">' . __('Servicios', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#ubicacion')) . '">' . __('Ubicación', 'mv-braids') . '</a></li>';
     echo '</ul>';
 }
 
@@ -567,11 +606,11 @@ function mv_braids_default_menu() {
  */
 function mv_braids_footer_default_menu() {
     echo '<ul class="footer-links">';
-    echo '<li><a href="' . esc_url(home_url('/galeria')) . '">' . __('Galería', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/servicios')) . '">' . __('Servicios', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#trabajos')) . '">' . __('Trabajos', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#vanessa')) . '">' . __('Sobre Mí', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#servicios')) . '">' . __('Servicios', 'mv-braids') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/#ubicacion')) . '">' . __('Ubicación', 'mv-braids') . '</a></li>';
     echo '<li><a href="' . esc_url(home_url('/reserva')) . '">' . __('Reserva', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/sobre-mi')) . '">' . __('Sobre Mí', 'mv-braids') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/faq')) . '">' . __('FAQ', 'mv-braids') . '</a></li>';
     echo '<li><a href="' . esc_url(home_url('/politica-de-privacidad')) . '">' . __('Privacidad', 'mv-braids') . '</a></li>';
     echo '</ul>';
 }

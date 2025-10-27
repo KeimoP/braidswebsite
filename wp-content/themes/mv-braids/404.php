@@ -50,8 +50,8 @@ get_header();
                 <div>
                     <h3><?php _e('¿Necesitas ayuda?', 'mv-braids'); ?></h3>
                     <p><?php _e('Contáctame a través de Instagram', 'mv-braids'); ?></p>
-                    <a href="https://instagram.com/mv__braids" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
-                        <i class="fab fa-instagram"></i> @mv__braids
+                    <a href="https://instagram.com/mv__trenzas" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+                        <i class="fab fa-instagram"></i> @mv__trenzas
                     </a>
                 </div>
             </div>

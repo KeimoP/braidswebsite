@@ -11,7 +11,7 @@
                         <?php _e('A Coruña, España', 'mv-braids'); ?>
                     </p>
                     <div class="social-links">
-                        <a href="https://instagram.com/mv__braids" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <a href="https://instagram.com/mv__trenzas" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://wa.me/34123456789" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">

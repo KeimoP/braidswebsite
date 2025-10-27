@@ -202,8 +202,8 @@ get_header();
                             <div>
                                 <strong><?php _e('Instagram', 'mv-braids'); ?></strong>
                                 <p>
-                                    <a href="https://instagram.com/mv__braids" target="_blank" rel="noopener noreferrer">
-                                        @mv__braids
+                                    <a href="https://instagram.com/mv__trenzas" target="_blank" rel="noopener noreferrer">
+                                        @mv__trenzas
                                     </a>
                                 </p>
                                 <p style="font-size: 0.9rem; color: var(--medium-grey);">

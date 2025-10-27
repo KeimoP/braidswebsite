@@ -127,7 +127,7 @@ get_header();
                     <a href="<?php echo esc_url(home_url('/reserva')); ?>" class="btn btn-primary">
                         <?php _e('Hacer una Reserva', 'mv-braids'); ?>
                     </a>
-                    <a href="https://instagram.com/mv__braids" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <a href="https://instagram.com/mv__trenzas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <i class="fab fa-instagram"></i> <?php _e('Instagram', 'mv-braids'); ?>
                     </a>
                 </div>
