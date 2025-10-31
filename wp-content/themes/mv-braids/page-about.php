@@ -29,6 +29,34 @@ get_header();
                     <?php _e('Desde niña, siempre me ha fascinado el arte de las trenzas. Lo que comenzó como un pasatiempo se convirtió en mi pasión y ahora en mi profesión. Cada trenza que creo es única, elaborada con dedicación y amor por el detalle.', 'mv-braids'); ?>
                 </p>
             </div>
+            
+            <!-- About Vanessa profile block -->
+            <div class="about-vanessa-section" style="margin-top: var(--spacing-xxl);">
+                <div class="about-vanessa-content container-narrow">
+                    <div class="vanessa-image-wrapper">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/profile.png" alt="Vanessa - Estilista de Trenzas" class="vanessa-profile-image">
+                        <div class="vanessa-decoration"></div>
+                    </div>
+                    <div class="vanessa-text">
+                        <h2 class="section-title"><?php _e('Conoce a Vanessa', 'mv-braids'); ?></h2>
+                        <p class="vanessa-subtitle"><?php _e('Creadora y Estilista de MV Trenzas', 'mv-braids'); ?></p>
+                        <div class="vanessa-description">
+                            <p><?php _e('¡Hola! Soy Vanessa, la creadora detrás de cada trenza única que ves en MV Trenzas. Con pasión por el arte del trenzado y dedicación a cada detalle, transformo el cabello en verdaderas obras de arte.', 'mv-braids'); ?></p>
+                            <p><?php _e('Como única estilista de MV Trenzas, me aseguro de que cada cliente reciba atención personalizada y un estilo que refleje su personalidad única.', 'mv-braids'); ?></p>
+                        </div>
+                        <div class="vanessa-cta">
+                            <a href="https://instagram.com/mv__trenzas" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                <i class="fab fa-instagram"></i>
+                                <?php _e('Sígueme en Instagram', 'mv-braids'); ?>
+                            </a>
+                            <a href="<?php echo esc_url(home_url('/reserva')); ?>" class="btn btn-secondary">
+                                <i class="fas fa-calendar-check"></i>
+                                <?php _e('Reserva con Vanessa', 'mv-braids'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
