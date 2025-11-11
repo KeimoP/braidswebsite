@@ -34,7 +34,7 @@ get_header();
             <div class="about-vanessa-section" style="margin-top: var(--spacing-xxl);">
                 <div class="about-vanessa-content container-narrow">
                     <div class="vanessa-image-wrapper">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/image.png" alt="Vanessa - Estilista de Trenzas" class="vanessa-profile-image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/profilepickture.jpg" alt="Vanessa - Estilista de Trenzas" class="vanessa-profile-image">
                         <div class="vanessa-decoration"></div>
                     </div>
                     <div class="vanessa-text">
