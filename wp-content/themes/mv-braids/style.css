@@ -36,7 +36,7 @@ Tags: custom-background, custom-colors, custom-header, custom-menu, featured-ima
     --cream: #FCF8F0;
     --dark-charcoal: #2A2A2A;
     --soft-black: #333333;
-    --light-grey: #F5F5F5;
+    --light-grey: #FFFFFF; /* changed from #F5F5F5 to white for a basic white screen */
     --medium-grey: #999999;
     
     /* Accent Colors */
@@ -190,6 +190,8 @@ a:focus {
 .section {
     padding-top: var(--spacing-xxl);
     padding-bottom: var(--spacing-xxl);
+    position: relative;
+    z-index: 1;
 }
 
 .section-alt {
@@ -206,10 +208,10 @@ a:focus {
     right: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
-    z-index: 1000;
+    z-index: 9999;
     transition: var(--transition-smooth);
 }
 
@@ -403,15 +405,17 @@ a:focus {
 
 .btn-outline {
     background-color: transparent;
-    color: var(--white);
-    border-color: var(--white);
+    /* make outline and text visible on a white page */
+    color: var(--primary-gold);
+    border-color: var(--primary-gold);
 }
 
 .btn-outline:hover,
 .btn-outline:focus {
+    /* on hover keep the inverted look (white bg, dark text) */
     background-color: var(--white);
     color: var(--soft-black);
-    border-color: var(--white);
+    border-color: var(--primary-gold);
 }
 
 .btn-large {
@@ -451,19 +455,21 @@ a:focus {
 }
 
 .hero-overlay {
+    /* remove dark overlay so the start screen appears white/basic */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(42, 42, 42, 0.7) 0%, rgba(42, 42, 42, 0.4) 100%);
+    background: transparent;
     z-index: -1;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    color: var(--white);
+    /* switch hero text to dark for visibility on white background */
+    color: var(--soft-black);
     max-width: 900px;
     width: 100%;
     padding: var(--spacing-lg) var(--container-padding);
@@ -790,6 +796,12 @@ a:focus {
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
     align-items: start;
+    /* center the booking area within the page and constrain its width */
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .booking-form {
@@ -828,7 +840,8 @@ a:focus {
 .form-select {
     width: 100%;
     padding: 0.875rem 1rem;
-    border: 2px solid var(--light-grey);
+    /* use medium grey for visible borders (was using --light-grey which may be white) */
+    border: 2px solid var(--medium-grey);
     border-radius: var(--radius-md);
     font-family: var(--font-primary);
     font-size: 1rem;
@@ -886,7 +899,8 @@ a:focus {
     align-items: center;
     justify-content: center;
     padding: var(--spacing-lg);
-    border: 2px dashed var(--light-grey);
+    /* use medium grey for dashed border so it shows on white backgrounds */
+    border: 2px dashed var(--medium-grey);
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: var(--transition-smooth);
@@ -1228,7 +1242,9 @@ a:focus {
     
     /* Grids */
     .booking-grid,
-    .faq-layout {
+    .faq-layout,
+    /* ensure the main booking container stacks on tablets/smaller screens */
+    .booking-container {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
@@ -1577,6 +1593,8 @@ a:focus {
    =================================== */
 .instagram-slideshow-section {
     background: var(--white);
+    position: relative;
+    z-index: 1;
 }
 
 .slideshow-container {
@@ -2154,14 +2172,15 @@ a:focus {
 
 .btn-outline {
     background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
+    /* visible on white pages */
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
 }
 
 .btn-outline:hover {
     background-color: var(--white);
     color: var(--soft-black);
-    border-color: var(--white);
+    border-color: var(--primary-gold);
 }
 
 /* Responsive adjustments for new sections */
@@ -2247,20 +2266,130 @@ a:focus {
     animation: slideInLeft 0.6s ease-out;
 }
 
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Scroll-triggered animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Apply scroll animation to common elements */
 .video-box,
 .feature-item,
-.service-card {
+.service-card,
+.style-card,
+.location-feature,
+.instagram-item {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .video-box.animate-in,
 .feature-item.animate-in,
-.service-card.animate-in {
+.service-card.animate-in,
+.style-card.animate-in,
+.location-feature.animate-in,
+.instagram-item.animate-in {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Enhanced button hover animations */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Image hover effects */
+.video-gif,
+.slide-image,
+.vanessa-profile-image {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-box:hover .video-gif,
+.slide:hover .slide-image {
+    transform: scale(1.08) rotate(1deg);
+}
+
+/* Card lift animation */
+.service-card,
+.video-box,
+.feature-item,
+.style-card {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover,
+.video-box:hover,
+.feature-item:hover,
+.style-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Smooth page transitions */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section title animations */
+.section-title,
+.section-subtitle {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.section-subtitle {
+    animation-delay: 0.2s;
 }
 
 /* Stagger animation delays */
@@ -2285,3 +2414,247 @@ a:focus {
         display: none;
     }
 }
+
+/* ===================================
+   MOBILE FIXES (overrides to improve visibility on small screens)
+   =================================== */
+@media (max-width: 480px) {
+    /* Prevent horizontal scroll on mobile */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure all major containers are constrained */
+    * {
+        max-width: 100% !important;
+    }
+    
+    .site-main,
+    main {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+    
+    /* Hero section mobile fixes */
+    .hero-section {
+        padding-left: var(--spacing-sm) !important;
+        padding-right: var(--spacing-sm) !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    .hero-content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column !important;
+        gap: var(--spacing-sm) !important;
+        width: 100% !important;
+    }
+
+    /* Make the scroll indicator visible on white backgrounds */
+    .scroll-indicator {
+        color: var(--soft-black) !important;
+        border-color: var(--soft-black) !important;
+    }
+
+    .scroll-indicator span {
+        background-color: var(--soft-black) !important;
+    }
+
+    /* Remove heavy text-shadows tuned for dark overlays to improve readability on white */
+    .hero-logo,
+    .hero-title,
+    .hero-tagline {
+        text-shadow: none !important;
+    }
+
+    /* Make outline buttons stronger on small screens for better contrast and tappability */
+    .btn-outline {
+        color: var(--soft-black) !important;
+        border-color: var(--soft-black) !important;
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus {
+        background-color: var(--white) !important;
+        color: var(--soft-black) !important;
+        border-color: var(--soft-black) !important;
+    }
+
+    /* Ensure about/profile image scales well on phones */
+    .vanessa-profile-image {
+        width: 160px;
+        height: 160px;
+        max-width: 60%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Add subtle separations where everything is white now */
+    .service-card,
+    .gallery-item,
+    .feature-item,
+    .video-box,
+    .location-details {
+        background-color: var(--cream) !important;
+    }
+
+    /* Reserva page: stack the booking columns and reduce padding for better fit on small screens */
+    .booking-container {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-md) !important;
+    }
+
+    .booking-form {
+        padding: var(--spacing-md) !important;
+    }
+    
+    .booking-sidebar {
+        padding: var(--spacing-md) !important;
+    }
+
+    /* Defensive centering: ensure container and booking wrapper don't overflow on small screens */
+    .container,
+    .container-narrow,
+    .container-wide {
+        padding-left: var(--spacing-sm) !important;
+        padding-right: var(--spacing-sm) !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Reduce section padding on mobile */
+    .section {
+        padding-top: var(--spacing-lg) !important;
+        padding-bottom: var(--spacing-lg) !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Override inline styles for reserva page top padding */
+    section[style*="padding-top"] {
+        padding-top: calc(var(--header-height) + var(--spacing-md)) !important;
+    }
+
+    .booking-container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .booking-form,
+    .booking-sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    
+    /* Slideshow container mobile fixes */
+    .slideshow-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .slideshow-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Images should never overflow */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    .hero-logo-image {
+        max-width: 200px !important;
+    }
+    
+    /* Video boxes and grids */
+    .video-box,
+    .feature-item,
+    .service-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Make iframe responsive and block-level to avoid overflow */
+    .map-container,
+    .map-container iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    /* Ensure file upload label doesn't exceed container width */
+    .file-upload-label {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Ensure all form inputs are constrained */
+    .form-input,
+    .form-textarea,
+    .form-select {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 16px !important; /* Prevent zoom on iOS */
+    }
+    
+    /* Form groups with better spacing */
+    .form-group {
+        margin-bottom: var(--spacing-md) !important;
+    }
+    
+    /* Make buttons full width and easier to tap */
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Booking info items */
+    .booking-info {
+        margin-bottom: var(--spacing-md) !important;
+    }
+    
+    .booking-info-item {
+        margin-bottom: var(--spacing-sm) !important;
+    }
+    
+    /* File upload styling for mobile */
+    .file-upload-label {
+        padding: var(--spacing-md) !important;
+    }
+    
+    .file-upload-icon {
+        font-size: 2rem !important;
+    }
+}
+

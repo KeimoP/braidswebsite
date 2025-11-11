@@ -135,9 +135,9 @@ get_header();
             
             <div class="video-grid">
                 <!-- Video/GIF Box 1 -->
-                <div class="video-box">
+                <div class="video-box scroll-animate">
                     <div class="video-wrapper">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/gifs/braiding-process-1.gif" alt="Proceso de trenzado" class="video-gif">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/Creativo/1.jpg" alt="Proceso de trenzado" class="video-gif">
                     </div>
                     <div class="video-caption">
                         <h3><?php _e('Técnica Detallada', 'mv-braids'); ?></h3>
@@ -146,9 +146,9 @@ get_header();
                 </div>
                 
                 <!-- Video/GIF Box 2 -->
-                <div class="video-box">
+                <div class="video-box scroll-animate">
                     <div class="video-wrapper">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/gifs/braiding-process-2.gif" alt="Estilo único" class="video-gif">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/Creativo/2.jpg" alt="Estilo único" class="video-gif">
                     </div>
                     <div class="video-caption">
                         <h3><?php _e('Estilo Personalizado', 'mv-braids'); ?></h3>
@@ -157,9 +157,9 @@ get_header();
                 </div>
                 
                 <!-- Video/GIF Box 3 -->
-                <div class="video-box">
+                <div class="video-box scroll-animate">
                     <div class="video-wrapper">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/gifs/braiding-process-3.gif" alt="Resultado final" class="video-gif">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/Creativo/3.jpg" alt="Resultado final" class="video-gif">
                     </div>
                     <div class="video-caption">
                         <h3><?php _e('Resultado Impecable', 'mv-braids'); ?></h3>

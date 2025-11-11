@@ -156,6 +156,15 @@ function mv_braids_scripts() {
         true
     );
     
+    // Scroll animations JavaScript
+    wp_enqueue_script(
+        'mv-braids-scroll-animations',
+        get_template_directory_uri() . '/js/scroll-animations.js',
+        array(),
+        '1.0.0',
+        true
+    );
+    
     // Localize script for AJAX
     wp_localize_script('mv-braids-script', 'mvBraidsAjax', array(
         'ajax_url' => admin_url('admin-ajax.php'),

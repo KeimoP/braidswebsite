@@ -214,9 +214,12 @@ get_header();
                     </div>
 
                     <div class="map-container">
-                        <!-- Replace with actual coordinates for A Coruña studio -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23302.207892583467!2d-8.411540249999999!3d43.3623436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e7cfcf174574d%3A0x6a47350d095cdfee!2sA%20Coru%C3%B1a%2C%20Spain!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
-                                loading="lazy" 
+                        <!-- Use the same studio coordinates used on the homepage/location section -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.0976543210123!2d-8.412345!3d43.369789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e7cfcf3b0c6c3%3A0x1234567890abcdef!2sRua%20Pl%C3%A1%20y%20Cancela%2C%2043%2C%2015005%20A%20Coru%C3%B1a!5e0!3m2!1ses!2ses!4v1730000000000!5m2!1ses!2ses"
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
