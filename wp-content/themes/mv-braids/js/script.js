@@ -26,6 +26,27 @@
         });
 
         /**
+         * Language Toggle
+         */
+        $('.language-toggle').on('click', function() {
+            // Get current language from the button text
+            var currentLang = $(this).find('.lang-text').text();
+            
+            if (currentLang === 'EN') {
+                // Switch to English
+                // In a real implementation, you would redirect to English version
+                // For now, we'll show an alert or you can integrate with WPML/Polylang
+                alert('English version coming soon! / ¡Versión en inglés próximamente!');
+                
+                // Example: Redirect to English page (uncomment when ready)
+                // window.location.href = '/en/';
+            } else {
+                // Switch back to Spanish
+                // window.location.href = '/';
+            }
+        });
+
+        /**
          * Header Scroll Effect
          */
         $(window).on('scroll', function() {

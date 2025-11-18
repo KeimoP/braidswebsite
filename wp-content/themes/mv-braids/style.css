@@ -311,6 +311,13 @@ a:focus {
     transform: scaleX(1);
 }
 
+/* Header Actions Container */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -1194,7 +1201,8 @@ a:focus {
         position: fixed;
         top: var(--header-height);
         left: -100%;
-        width: 280px;
+        width: 90%;
+        max-width: 360px;
         height: calc(100vh - var(--header-height));
         background-color: var(--white);
         box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
@@ -1202,6 +1210,8 @@ a:focus {
         z-index: 999;
         overflow-y: auto;
         padding: 0;
+        display: flex;
+        flex-direction: column;
     }
     
     .menu-open .main-navigation {
@@ -1210,23 +1220,51 @@ a:focus {
     
     .main-navigation ul {
         flex-direction: column;
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-md);
         width: 100%;
+        gap: 0;
     }
     
     .main-navigation li {
         width: 100%;
-        border-bottom: 1px solid var(--light-grey);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .main-navigation li:last-child {
+        border-bottom: none;
     }
     
     .main-navigation a {
         display: block;
-        padding: var(--spacing-sm) 0;
+        padding: 1rem 0.5rem;
         width: 100%;
+        font-size: 0.95rem;
+        text-align: left;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.4;
+    }
+    
+    /* Hamburger menu CTA button - separate from menu items */
+    .main-navigation .btn {
+        width: calc(100% - 2rem);
+        margin: var(--spacing-lg) 1rem;
+        padding: 1rem;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: visible;
+        flex-shrink: 0;
     }
     
     .mobile-menu-toggle {
-        display: block;
+        display: flex;
+    }
+    
+    /* Keep language toggle visible on mobile next to hamburger */
+    .header-actions {
+        display: flex;
+        gap: 0.5rem;
     }
     
     /* Hero */
@@ -1727,7 +1765,6 @@ a:focus {
 .video-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1;
     overflow: hidden;
     background-color: var(--light-grey);
 }
@@ -1963,7 +2000,7 @@ a:focus {
 .location-feature {
     display: flex;
     gap: var(--spacing-md);
-    align-items: flex-start;
+    align-items: center;
     padding: var(--spacing-md);
     background: var(--white);
     border-radius: var(--radius-md);
@@ -1986,6 +2023,11 @@ a:focus {
     border-radius: 50%;
     font-size: 1.25rem;
     color: var(--soft-black);
+}
+
+.location-feature-text {
+    flex: 1;
+    text-align: center;
 }
 
 .location-feature h3 {
@@ -2108,6 +2150,10 @@ a:focus {
     
     .feature-icon-small {
         margin: 0 auto;
+    }
+    
+    .location-feature-text {
+        text-align: center;
     }
     
     .map-container {

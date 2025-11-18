@@ -41,11 +41,13 @@
                 </a>
             </nav>
 
-            <button class="mobile-menu-toggle" aria-label="<?php _e('Toggle menu', 'mv-braids'); ?>">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="header-actions">
+                <button class="mobile-menu-toggle" aria-label="<?php _e('Toggle menu', 'mv-braids'); ?>">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 

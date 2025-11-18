@@ -50,8 +50,8 @@
 
         // Observe each element
         animateElements.forEach((el, index) => {
-            // Add slight delay for stagger effect
-            el.style.transitionDelay = `${index * 0.1}s`;
+            // Add slight delay for stagger effect - reduced from 0.1s to 0.05s for faster animation
+            el.style.transitionDelay = `${index * 0.05}s`;
             observer.observe(el);
         });
 
